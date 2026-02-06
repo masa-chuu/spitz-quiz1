@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スピッツ全曲言えるかな?</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #667eea;
+  font-size: 2em;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+
+.stats {
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  margin: 15px 0;
+  padding: 15px;
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.timer {
+  font-size: 1.5em;
+  color: #764ba2;
+  font-weight: bold;
+}
+
+.input-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#songInput {
+  width: 90%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 1.1em;
+  border: 3px solid #667eea;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+#songInput:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+
+.albums-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 15px;
+}
+
+.album-card-progress {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.album-card-progress:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.album-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.6);
+  transition: filter 0.5s;
+}
+
+.album-card-progress .color-reveal-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.5s;
+}
+
+.album-progress-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #667eea;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.album-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 15px 8px 8px;
+  color: white;
+  font-size: 0.75em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.complete-checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #4caf50;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.album-card-progress.complete .complete-checkmark {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .albums-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 15px;
+  }
+}
+
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.album {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.album-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #667eea;
+  word-break: keep-all;
+}
+
+.song-list {
+  list-style: none;
+}
+
+.song-item {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.song-number {
+  display: inline-block;
+  width: 30px;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.song-name {
+  flex: 1;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.song-item.found .song-name {
+  color: #333;
+  font-weight: bold;
+}
+
+.song-item.found {
+  background: #e8f5e9;
+  animation: foundAnim 0.5s;
+}
+
+@keyframes foundAnim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); background: #81c784; }
+  100% { transform: scale(1); }
+}
+
+.controls {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.controls-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  max-width: 600px;
+  margin: 15px auto;
+}
+
+.controls-bottom button {
+  margin: 0;
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.1em;
+  color: #4caf50;
+  margin: 10px 0;
+  min-height: 25px;
+  font-weight: bold;
+}
+
+.mode-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.mode-title {
+  font-size: 1.8em;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.mode-btn {
+  padding: 30px 20px;
+  font-size: 1.2em;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mode-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.mode-btn-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mode-btn-desc {
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.overlay-content {
+  position: relative;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.close-btn:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+
+.overlay-title {
+  font-size: 1.8em;
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.overlay-description {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.overlay-btn {
+  padding: 12px 40px;
+  font-size: 1.1em;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.overlay-btn:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+.hidden {
+  display: none;
+}
+
+.back-btn {
+  background: #999;
+  margin-top: 10px;
+}
+
+.back-btn:hover {
+  background: #777;
+}
+
+@media (max-width: 768px) {
+  body { padding: 5px; }
+  .container { margin: 10px auto; padding: 15px; border-radius: 15px; }
+  h1 { font-size: 1.5em; margin-bottom: 5px; }
+  .stats { font-size: 1em; margin: 10px 0; padding: 10px; }
+  .timer { font-size: 1.3em; }
+  .input-section { margin: 15px 0; }
+  #songInput { width: 95%; padding: 10px; font-size: 1em; }
+  .albums-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
+  .album { padding: 12px; border-radius: 10px; }
+  .album-title { font-size: 1em; margin-bottom: 10px; }
+  .controls { margin: 10px 0; }
+  button { padding: 8px 15px; font-size: 0.9em; margin: 3px; }
+  .message { font-size: 1em; min-height: 20px; }
+  .mode-buttons { grid-template-columns: 1fr; }
+}
+</style>
+
+
+</head>
+<body>
+<div class="container">
+<h1 style="cursor: pointer;" onclick="backToModeSelect()">🎵 スピッツ全曲言えるかな? 🎵</h1>
+
+<div id="modeSelect" class="mode-select">
+<div class="mode-title">モードを選択してください</div>
+<div class="mode-buttons">
+<button class="mode-btn" onclick="selectMode('normal')">
+<div class="mode-btn-title">通常モード</div>
+<div class="mode-btn-desc">全曲タイムアタック</div>
+</button>
+<button class="mode-btn" onclick="selectMode('songs100')">
+<div class="mode-btn-title">100曲チャレンジ</div>
+<div class="mode-btn-desc">100曲タイムアタック</div>
+</button>
+<button class="mode-btn" onclick="selectMode('time5')">
+<div class="mode-btn-title">5分チャレンジ</div>
+<div class="mode-btn-desc">5分間で何曲?</div>
+</button>
+<button class="mode-btn" onclick="selectMode('time10')">
+<div class="mode-btn-title">10分チャレンジ</div>
+<div class="mode-btn-desc">10分間で何曲?</div>
+</button>
+</div>
+</div>
+
+<div id="gameArea" class="hidden">
+<div class="stats">
+<div class="timer" id="timer">00:00:00</div>
+<div style="margin-top:10px">現在 <span id="foundCount" style="color:#4caf50;font-weight:bold">0</span>曲 / 残り <span id="remainingCount" style="color:#f44336;font-weight:bold">0</span>曲</div>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%">0%</div></div>
+<div class="message" id="message"></div>
+
+<div class="controls" style="margin-bottom: 10px;">
+<button onclick="startQuiz()" style="font-size: 1.3em; padding: 15px 40px;">スタート</button>
+</div>
+
+<div class="input-section"><input type="text" id="songInput" placeholder="曲名を入力してEnterキー..." autocomplete="off"></div>
+
+<div class="controls controls-bottom">
+<button onclick="resetQuiz()">リセット</button>
+<button onclick="giveUp()">ギブアップ</button>
+<button class="back-btn" onclick="backToModeSelect()">モード選択に戻る</button>
+</div>
+
+<div class="albums-gallery" id="albumsGallery"></div>
+
+<div class="albums-grid" id="albumsContainer"></div>
+</div>
+</div>
+
+
+
+<div id="overlay" class="overlay" onclick="closeOverlayOnOutside(event)">
+<div class="overlay-content">
+<button class="close-btn" onclick="cancelModeSelection(event)">✕</button>
+<div class="overlay-title" id="overlayTitle"></div>
+<div class="overlay-description" id="overlayDesc"></div>
+<button class="overlay-btn" onclick="closeOverlay()">スタート画面へ</button>
+</div>
+</div>
+
+<script src="albums-data.js"></script>
+<script src="quiz.js"></script>
+
+</body>
+</html>
