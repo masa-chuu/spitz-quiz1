@@ -385,20 +385,33 @@ button:hover {
 }
 
 
+
+/* 閉じるボタンのスタイル修正 */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  top: 15px; /* 上部からの位置調整 */
+  right: 15px; /* 右側からの位置調整 */
+  background: rgba(255, 255, 255, 0.8); /* 背景を少し白くして視認性アップ */
   border: none;
-  font-size: 20px;
+  font-size: 28px; /* 大きさを調整 */
   cursor: pointer;
+  z-index: 1001; /* overlayよりも大きな値を設定して最前面に */
+  width: 40px; /* クリックしやすい大きさに */
+  height: 40px;
+  border-radius: 50%; /* 丸いボタンにする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  line-height: 1;
 }
 
 .close-btn:hover {
   background: #d32f2f;
+  color: white;
   transform: scale(1.1);
 }
+
 
 
 .overlay-title {
@@ -525,5 +538,4 @@ button:hover {
 <script src="quiz.js"></script>
 
 </body>
-
 </html>
