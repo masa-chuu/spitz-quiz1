@@ -8,6 +8,25 @@ window.addEventListener('load', () => {
   }
 });
 
+
+
+// モーダルを閉じる共通関数
+function closeOverlay() {
+  const overlay = document.getElementById('overlay');
+  overlay.style.display = 'none';
+}
+
+// 外側をクリックした時に閉じる関数
+function closeOverlayOnOutside(event) {
+  // クリックされた場所が overlay 自体（背景）の場合のみ閉じる
+  // overlay-content の中をクリックした時は閉じない
+  if (event.target.id === 'overlay') {
+    closeOverlay();
+  }
+}
+
+
+
 // グローバル変数
 let foundSongs = new Set();
 let totalSongs = 0;
