@@ -5,7 +5,7 @@ songs:[{name:"ニノウデの世界",readings:["にのうでのせかい"]},{nam
 
 {title:"名前をつけてやる (2nd, 1991)",
 image: "images/namaewo.jpg",
-songs:[{name:"ウサギのバイク",readings:["うさぎのばいく"]},{name:"日曜日",readings:["にちようび"]},{name:"名前をつけてやる",readings:["なまえをつけてやる"]},{name:"鈴虫を飼う",readings:["すずむしをかう"]},{name:"ミーコとギター",readings:["みーことぎたー"]},{name:"プール",readings:["ぷーる"]},{name:"胸に咲いた黄色い花",readings:["むねにさいたきいろいはな"]},{name:"待ちあわせ",readings:["まちあわせ"]},{name:"ああ",readings:["ああ"]},{name:"恋のうた",readings:["こいのうた"]},{name:"魔女旅に出る",readings:["まじょたびにでる"]}]},
+songs:[{name:"ウサギのバイク",readings:["うさぎのばいく"]},{name:"日曜日",readings:["にちようび"]},{name:"名前をつけてやる",readings:["なまえをつけてやる"]},{name:"鈴虫を飼う",readings:["すずむしをかう"]},{name:"ミーコとギター",readings:["みーことぎたー"]},{name:"プール",readings:["ぷーる"]},{name:"胸に咲いた黄色い花",readings:["むねにさいたきいろいはな"]},{name:"待ちあわせ",readings:["まちあわせ"]},{name:"あわ",readings:["あわ"]},{name:"恋のうた",readings:["こいのうた"]},{name:"魔女旅に出る",readings:["まじょたびにでる"]}]},
 
 {title:"オーロラになれなかった人のために (mini, 1992)",
 image: "images/aurora.jpg",
@@ -13,7 +13,7 @@ songs:[{name:"魔法",readings:["まほう"]},{name:"田舎の生活",readings:[
 
 {title:"惑星のかけら (3rd, 1992)",
 image: "images/hoshino.jpg",
-songs:[{name:"惑星のかけら",readings:["わくせいのかけら"]},{name:"ハニーハニー",readings:["はにーはにー"]},{name:"僕の天使マリ",readings:["ぼくのてんしまり"]},{name:"オーバードライブ",readings:["おーばーどらいぶ"]},{name:"アパート",readings:["あぱーと"]},{name:"シュラフ",readings:["しゅらふ"]},{name:"白い炎",readings:["しろいほのお"]},{name:"波のり",readings:["なみのり"]},{name:"日なたの窓に憧れて",readings:["ひなたのまどにあこがれて"]},{name:"ローランダー、空へ",readings:["ろーらんだーそらへ"]},{name:"リコシェ号",readings:["りこしぇごう"]}]},
+songs:[{name:"惑星のかけら",readings:["ほしのかけら"]},{name:"ハニーハニー",readings:["はにーはにー"]},{name:"僕の天使マリ",readings:["ぼくのてんしまり"]},{name:"オーバードライブ",readings:["おーばーどらいぶ"]},{name:"アパート",readings:["あぱーと"]},{name:"シュラフ",readings:["しゅらふ"]},{name:"白い炎",readings:["しろいほのお"]},{name:"波のり",readings:["なみのり"]},{name:"日なたの窓に憧れて",readings:["ひなたのまどにあこがれて"]},{name:"ローランダー、空へ",readings:["ろーらんだーそらへ"]},{name:"リコシェ号",readings:["りこしぇごう"]}]},
 
 {title:"Crispy! (4th, 1993)",
 image: "images/crispy.jpg",
