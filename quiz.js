@@ -71,15 +71,27 @@ function closeOverlayOnOutside(event) {
 
 
 function showResult(status) {
-  const timerText = document.getElementById('timer').textContent;
   const countText = foundSongs.size;
-  resultData = { status: status, time: timerText, count: countText };
+  let timeDisplay = "";
+
+  // モードごとの時間表示ロジック
+  if (currentMode === 'time5' || currentMode === 'time10') {
+    // 制限時間モードは制限時間そのものを表示
+    timeDisplay = currentMode === 'time5' ? "5分" : "10分";
+  } else {
+    // タイムアタックモードは実際にかかった時間を表示
+    timeDisplay = document.getElementById('timer').textContent;
+  }
+
+  resultData = { status: status, time: timeDisplay, count: countText };
 
   document.getElementById('resultStatus').textContent = status;
-  document.getElementById('resultTime').textContent = `記録: ${timerText}`;
-  document.getElementById('resultCount').textContent = `正解数: ${countText}曲`;
+  // ★文言を「〇〇で〇〇曲正解！」に統一
+  document.getElementById('resultTime').textContent = `${timeDisplay}で`;
+  document.getElementById('resultCount').textContent = `${countText}曲正解！`;
   document.getElementById('resultOverlay').classList.add('active');
 }
+
 
 function closeResultOverlay() {
   document.getElementById('resultOverlay').classList.remove('active');
