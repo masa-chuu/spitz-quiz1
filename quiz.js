@@ -18,6 +18,10 @@ let currentMode = 'normal';
 let targetCount = 0;
 let timeLimit = 0;
 
+
+let resultData = { status: "", time: "", count: 0 };
+
+
 // モード設定
 const modeConfig = {
   normal: {title:'通常モード', desc:'全曲クリアを目指してタイムアタック!何分で全曲答えられるか挑戦しよう。'},
@@ -63,6 +67,32 @@ function closeOverlayOnOutside(event) {
     cancelModeSelection(event);
   }
 }
+
+
+
+function showResult(status) {
+  const timerText = document.getElementById('timer').textContent;
+  const countText = foundSongs.size;
+  resultData = { status: status, time: timerText, count: countText };
+
+  document.getElementById('resultStatus').textContent = status;
+  document.getElementById('resultTime').textContent = `記録: ${timerText}`;
+  document.getElementById('resultCount').textContent = `正解数: ${countText}曲`;
+  document.getElementById('resultOverlay').classList.add('active');
+}
+
+function closeResultOverlay() {
+  document.getElementById('resultOverlay').classList.remove('active');
+}
+
+function shareOnX() {
+  const text = `#スピッツ全曲言えるかな #スピッツ \n${resultData.status}\nプレイ結果は ${resultData.time} で ${resultData.count}曲でした！\n`;
+  const url = window.location.href;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+}
+
+
+
 
 // モード選択に戻る
 function backToModeSelect() {
@@ -150,6 +180,7 @@ function updateTimer() {
       isStarted = false;
       showMessage(`⏰ 時間切れ!${foundSongs.size}曲正解!`);
       document.getElementById('songInput').disabled = true;
+      showResult("タイムアップ!!");
       return;
     }
     elapsed = remaining;
@@ -181,9 +212,11 @@ function updateStats() {
     showMessage(`🎉 ${targetCount}曲クリア!おめでとう! 🎉`);
     isStarted = false;
     document.getElementById('songInput').disabled = true;
+    showResult("クリア!!おめでとう!!");
   } else if (found === totalSongs && totalSongs > 0 && currentMode === 'normal') {
     clearInterval(timerInterval);
     showMessage('🎉 おめでとうございます!全曲クリア! 🎉');
+    showResult("クリア!!おめでとう!!");
   }
 }
 
@@ -260,6 +293,7 @@ function giveUp() {
   });
   
   showMessage('お疲れ様でした!');
+  showResult("ギブアップ!!");
 }
 
 // アルバムギャラリーを表示
