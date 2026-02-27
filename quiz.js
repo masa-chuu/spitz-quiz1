@@ -10,21 +10,18 @@ window.addEventListener('load', () => {
 
 
 
-// モーダルを閉じる関数
+// 閉じる処理を集約
 function closeOverlay() {
-  const overlay = document.getElementById('overlay');
-  overlay.style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
 }
 
-// 外側をクリックした時に閉じる関数
+// 背景クリック判定
 function closeOverlayOnOutside(event) {
-  // クリックされた対象(event.target)が、overlay自身である場合のみ閉じる
-  // コンテンツ部分(overlay-content)をクリックした時は閉じない
+  // クリックされたのが背景（overlay）自身の場合のみ閉じる
   if (event.target.id === 'overlay') {
     closeOverlay();
   }
 }
-
 
 
 // グローバル変数
