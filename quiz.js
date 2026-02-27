@@ -1,3 +1,5 @@
+// quiz.js
+
 // アルバムデータをロード
 window.addEventListener('load', () => {
   if (typeof albums !== 'undefined') {
@@ -8,21 +10,27 @@ window.addEventListener('load', () => {
   }
 });
 
+// ==========================================
+// ★ ポップアップ制御関数（ここに集約）★
+// ==========================================
 
-
-// 閉じる処理を集約
+// ✕ボタンをクリックした時
 function closeOverlay() {
-  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('overlay').classList.remove('active');
+  // ポップアップを閉じた時に、そのままゲームを開始する設計にする場合
+  document.getElementById('modeSelect').classList.add('hidden');
+  document.getElementById('gameArea').classList.remove('hidden');
+  initQuiz();
 }
 
-// 背景クリック判定
+// オーバーレイ（背景）をクリックした時
 function closeOverlayOnOutside(event) {
   // クリックされたのが背景（overlay）自身の場合のみ閉じる
   if (event.target.id === 'overlay') {
     closeOverlay();
   }
 }
-
+// ==========================================
 
 // グローバル変数
 let foundSongs = new Set();
@@ -51,20 +59,12 @@ function norm(s) {
     .replace(/[\s\-_'!。、・☆]/g, '');
 }
 
-// モード選択
+// モード選択をクリック
 function selectMode(mode) {
   currentMode = mode;
   document.getElementById('overlayTitle').textContent = modeConfig[mode].title;
   document.getElementById('overlayDesc').textContent = modeConfig[mode].desc;
-  document.getElementById('overlay').classList.add('active');
-}
-
-// オーバーレイを閉じる
-function closeOverlay() {
-  document.getElementById('overlay').classList.remove('active');
-  document.getElementById('modeSelect').classList.add('hidden');
-  document.getElementById('gameArea').classList.remove('hidden');
-  initQuiz();
+  document.getElementById('overlay').classList.add('active'); // overlayを表示
 }
 
 // モード選択に戻る
@@ -118,11 +118,7 @@ function initQuiz() {
   });
   
   updateStats();
-
-  
   displayAlbumGallery(); 
-
-
 }
 
 // クイズスタート
@@ -182,8 +178,7 @@ function updateStats() {
   document.getElementById('progressFill').textContent = progress + '%';
   
 
- displayAlbumGallery();
-
+  displayAlbumGallery();
 
   if (targetCount > 0 && found >= targetCount) {
     clearInterval(timerInterval);
@@ -283,16 +278,16 @@ function displayAlbumGallery() {
     card.className = 'album-card-progress';
     
     // 達成度計算
-    const totalSongs = album.songs.length;
+    const totalSongsInAlbum = album.songs.length;
     let completedSongs = 0;
     album.songs.forEach((song, si) => {
       const key = `${index}-${si}`;
       if (foundSongs.has(key)) completedSongs++;
     });
-    const progress = totalSongs > 0 ? (completedSongs / totalSongs) * 100 : 0;
+    const progress = totalSongsInAlbum > 0 ? (completedSongs / totalSongsInAlbum) * 100 : 0;
     
     // 完了チェック
-    if (completedSongs === totalSongs && totalSongs > 0) {
+    if (completedSongs === totalSongsInAlbum && totalSongsInAlbum > 0) {
       card.classList.add('complete');
     }
     
@@ -316,7 +311,7 @@ function displayAlbumGallery() {
     // 進捗バッジ
     const badge = document.createElement('div');
     badge.className = 'album-progress-badge';
-    badge.textContent = `${completedSongs}/${totalSongs}`;
+    badge.textContent = `${completedSongs}/${totalSongsInAlbum}`;
     card.appendChild(badge);
     
     // アルバム情報
