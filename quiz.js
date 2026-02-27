@@ -1,5 +1,3 @@
-// quiz.js
-
 // アルバムデータをロード
 window.addEventListener('load', () => {
   if (typeof albums !== 'undefined') {
@@ -9,28 +7,6 @@ window.addEventListener('load', () => {
     console.error('データが見つかりません');
   }
 });
-
-// ==========================================
-// ★ ポップアップ制御関数（ここに集約）★
-// ==========================================
-
-// ✕ボタンをクリックした時
-function closeOverlay() {
-  document.getElementById('overlay').classList.remove('active');
-  // ポップアップを閉じた時に、そのままゲームを開始する設計にする場合
-  document.getElementById('modeSelect').classList.add('hidden');
-  document.getElementById('gameArea').classList.remove('hidden');
-  initQuiz();
-}
-
-// オーバーレイ（背景）をクリックした時
-function closeOverlayOnOutside(event) {
-  // クリックされたのが背景（overlay）自身の場合のみ閉じる
-  if (event.target.id === 'overlay') {
-    closeOverlay();
-  }
-}
-// ==========================================
 
 // グローバル変数
 let foundSongs = new Set();
@@ -59,12 +35,33 @@ function norm(s) {
     .replace(/[\s\-_'!。、・☆]/g, '');
 }
 
-// モード選択をクリック
+// モード選択
 function selectMode(mode) {
   currentMode = mode;
   document.getElementById('overlayTitle').textContent = modeConfig[mode].title;
   document.getElementById('overlayDesc').textContent = modeConfig[mode].desc;
-  document.getElementById('overlay').classList.add('active'); // overlayを表示
+  document.getElementById('overlay').classList.add('active');
+}
+
+// モード選択をキャンセル
+function cancelModeSelection(event) {
+  event.stopPropagation();
+  document.getElementById('overlay').classList.remove('active');
+}
+
+// オーバーレイ内のスタートボタンまたは背景クリックで閉じる
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('active');
+  document.getElementById('modeSelect').classList.add('hidden');
+  document.getElementById('gameArea').classList.remove('hidden');
+  initQuiz();
+}
+
+// 背景クリックで閉じる判定
+function closeOverlayOnOutside(event) {
+  if (event.target.id === 'overlay') {
+    cancelModeSelection(event);
+  }
 }
 
 // モード選択に戻る
@@ -177,7 +174,6 @@ function updateStats() {
   document.getElementById('progressFill').style.width = progress + '%';
   document.getElementById('progressFill').textContent = progress + '%';
   
-
   displayAlbumGallery();
 
   if (targetCount > 0 && found >= targetCount) {

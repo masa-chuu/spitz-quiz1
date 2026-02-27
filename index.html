@@ -364,8 +364,8 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* 背景を少し暗くしてクリックエリアを明確に */
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -379,7 +379,7 @@ button:hover {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  position: relative; /* ✕ボタンの基準位置 */
+  position: relative;
   text-align: center;
   min-width: 300px;
 }
@@ -460,8 +460,6 @@ button:hover {
   .mode-buttons { grid-template-columns: 1fr; }
 }
 </style>
-
-
 </head>
 <body>
 <div class="container">
@@ -510,23 +508,18 @@ button:hover {
 </div>
 
 <div class="albums-gallery" id="albumsGallery"></div>
-
 <div class="albums-grid" id="albumsContainer"></div>
 </div>
 </div>
 
-
-
 <div id="overlay" class="overlay" onclick="closeOverlayOnOutside(event)">
   <div class="overlay-content">
-    <button class="close-btn" onclick="closeOverlay()">✕</button>
-    
+    <button class="close-btn" onclick="cancelModeSelection(event)">✕</button>
     <div class="overlay-title" id="overlayTitle"></div>
     <div class="overlay-description" id="overlayDesc"></div>
-    
-    </div>
+    <button class="overlay-btn" onclick="closeOverlay()">スタート画面へ</button>
+  </div>
 </div>
-
 
 <script src="albums-data.js"></script>
 <script src="quiz.js"></script>
