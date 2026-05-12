@@ -37,7 +37,7 @@ songs:[{name:"エトランゼ",readings:["えとらんぜ"]},{name:"センチメ
 
 {title:"花鳥風月 (SP, 2000)",
 image: "images/kachou.jpg",
-songs:[{name:"流れ星",readings:["ながれぼし"]},{name:"愛のしるし",readings:["あいのしるし"]},{name:"スピカ",readings:["すぴか"]},{name:"旅人",readings:["たびんと"]},{name:"俺のすべて",readings:["おれのすべて"]},{name:"猫になりたい",readings:["ねこになりたい"]},{name:"心の底から",readings:["こころのそこから"]},{name:"マーメイド",readings:["まーめいど"]},{name:"コスモス",readings:["こすもす"]},{name:"野生のチューリップ",readings:["やせいのちゅーりっぷ"]},{name:"鳥になって",readings:["とりになって"]},{name:"おっぱい",readings:["おっぱい"]},{name:"トゲトゲの木",readings:["とげとげのき"]}]},
+songs:[{name:"流れ星",readings:["ながれぼし"]},{name:"愛のしるし",readings:["あいのしるし"]},{name:"スピカ",readings:["すぴか"]},{name:"旅人",readings:["たびびと"]},{name:"俺のすべて",readings:["おれのすべて"]},{name:"猫になりたい",readings:["ねこになりたい"]},{name:"心の底から",readings:["こころのそこから"]},{name:"マーメイド",readings:["まーめいど"]},{name:"コスモス",readings:["こすもす"]},{name:"野生のチューリップ",readings:["やせいのちゅーりっぷ"]},{name:"鳥になって",readings:["とりになって"]},{name:"おっぱい",readings:["おっぱい"]},{name:"トゲトゲの木",readings:["とげとげのき"]}]},
 
 {title:"ハヤブサ (9th, 2000)",
 image: "images/hayabusa.jpg",
