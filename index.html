@@ -14,7 +14,8 @@
 
 body {
   font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* 背景を青緑系のグラデーションに変更 */
+  background: linear-gradient(135deg, #39A185 0%, #2a7a64 100%);
   min-height: 100vh;
   padding: 10px;
   display: flex;
@@ -34,7 +35,8 @@ body {
 
 h1 {
   text-align: center;
-  color: #667eea;
+  /* ロゴ色に合わせる */
+  color: #39A185;
   font-size: 2em;
   margin-bottom: 10px;
   word-break: keep-all;
@@ -52,7 +54,8 @@ h1 {
 
 .timer {
   font-size: 1.5em;
-  color: #764ba2;
+  /* タイマーの色を青緑に */
+  color: #39A185;
   font-weight: bold;
 }
 
@@ -66,17 +69,17 @@ h1 {
   max-width: 500px;
   padding: 12px;
   font-size: 1.1em;
-  border: 3px solid #667eea;
+  /* 枠線を青緑に */
+  border: 3px solid #39A185;
   border-radius: 10px;
   outline: none;
   transition: all 0.3s;
 }
 
 #songInput:focus {
-  border-color: #764ba2;
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+  border-color: #2a7a64;
+  box-shadow: 0 0 10px rgba(57, 161, 133, 0.3);
 }
-
 
 .albums-gallery {
   display: grid;
@@ -132,7 +135,8 @@ h1 {
   border-radius: 12px;
   font-size: 0.75em;
   font-weight: bold;
-  color: #667eea;
+  /* バッジの文字を青緑に */
+  color: #39A185;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -155,6 +159,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3em;
+  /* チェックマークの色（既存の緑系を維持） */
   color: #4caf50;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
@@ -174,7 +179,6 @@ h1 {
   }
 }
 
-
 .albums-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -192,10 +196,11 @@ h1 {
 .album-title {
   font-size: 1.1em;
   font-weight: bold;
-  color: #667eea;
+  /* アルバムタイトル部分を青緑に */
+  color: #39A185;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #667eea;
+  border-bottom: 2px solid #39A185;
   word-break: keep-all;
 }
 
@@ -221,11 +226,13 @@ h1 {
 
 .song-name {
   flex: 1;
+  /* 未回答曲はグレー系を維持 */
   color: #ccc;
   font-weight: 500;
 }
 
 .song-item.found .song-name {
+  /* 正解した曲名は黒系を維持 */
   color: #333;
   font-weight: bold;
 }
@@ -262,7 +269,8 @@ h1 {
 button {
   padding: 10px 20px;
   font-size: 1em;
-  background: #667eea;
+  /* 基本ボタンを青緑に */
+  background: #39A185;
   color: white;
   border: none;
   border-radius: 10px;
@@ -272,7 +280,8 @@ button {
 }
 
 button:hover {
-  background: #764ba2;
+  /* ホバー時は少し濃い青緑に */
+  background: #2a7a64;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -288,7 +297,8 @@ button:hover {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  /* 進行状況バーを青緑のグラデーションに */
+  background: linear-gradient(90deg, #39A185 0%, #2a7a64 100%);
   transition: width 0.5s;
   display: flex;
   align-items: center;
@@ -316,7 +326,7 @@ button:hover {
 
 .mode-title {
   font-size: 1.8em;
-  color: #667eea;
+  color: #39A185;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -332,7 +342,8 @@ button:hover {
 .mode-btn {
   padding: 30px 20px;
   font-size: 1.2em;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  /* モード選択ボタンのグラデーションを変更 */
+  background: linear-gradient(135deg, #39A185, #2a7a64);
   color: white;
   border: none;
   border-radius: 15px;
@@ -356,7 +367,6 @@ button:hover {
   font-size: 0.85em;
   opacity: 0.9;
 }
-
 
 .overlay {
   position: fixed;
@@ -384,21 +394,18 @@ button:hover {
   min-width: 300px;
 }
 
-
-
-/* 閉じるボタンのスタイル修正 */
 .close-btn {
   position: absolute;
-  top: 15px; /* 上部からの位置調整 */
-  right: 15px; /* 右側からの位置調整 */
-  background: rgba(255, 255, 255, 0.8); /* 背景を少し白くして視認性アップ */
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.8);
   border: none;
-  font-size: 28px; /* 大きさを調整 */
+  font-size: 28px;
   cursor: pointer;
-  z-index: 1001; /* overlayよりも大きな値を設定して最前面に */
-  width: 40px; /* クリックしやすい大きさに */
+  z-index: 1001;
+  width: 40px;
   height: 40px;
-  border-radius: 50%; /* 丸いボタンにする */
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,11 +419,9 @@ button:hover {
   transform: scale(1.1);
 }
 
-
-
 .overlay-title {
   font-size: 1.8em;
-  color: #667eea;
+  color: #39A185;
   margin-bottom: 20px;
 }
 
@@ -430,7 +435,7 @@ button:hover {
 .overlay-btn {
   padding: 12px 40px;
   font-size: 1.1em;
-  background: #667eea;
+  background: #39A185;
   color: white;
   border: none;
   border-radius: 10px;
@@ -439,7 +444,7 @@ button:hover {
 }
 
 .overlay-btn:hover {
-  background: #764ba2;
+  background: #2a7a64;
   transform: translateY(-2px);
 }
 
@@ -472,11 +477,43 @@ button:hover {
   .message { font-size: 1em; min-height: 20px; }
   .mode-buttons { grid-template-columns: 1fr; }
 }
+
+/* ロゴの親要素（h1）の調整 */
+h1.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background: none;
+}
+
+.site-logo {
+  max-width: 100%;
+  height: auto;
+  max-height: 120px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    max-height: 80px;
+  }
+}
 </style>
+
+
 </head>
 <body>
 <div class="container">
-<h1 style="cursor: pointer;" onclick="backToModeSelect()">🎵 スピッツ全曲言えるかな? 🎵</h1>
+<h1 class="logo-container" onclick="backToModeSelect()">
+  <img src="images/spiqlogo.png" alt="スピッツ全曲言えるかな?" class="site-logo">
+</h1>
 
 <div id="modeSelect" class="mode-select">
 <div class="mode-title">モードを選択してください</div>
