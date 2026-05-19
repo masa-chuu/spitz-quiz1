@@ -74,14 +74,14 @@ songs:[{name:"未来コオロギ",readings:["みらいこおろぎ"]},{name:"小
 
 {title:"醒めない (15th, 2016)",
 image: "images/samenai.jpg",
-songs:[{name:"醒めない",readings:["さめない"]},{name:"みなと",readings:["みなと"]},{name:"子グマ!子グマ!",readings:["こぐまこぐま"]},{name:"コメット",readings:["こめっと"]},{name:"ナサケモノ",readings:["なさけもの"]},{name:"グリーン",readings:["ぐりーん"]},{name:"SJ",readings:["sj","えすじぇー"]},{name:"ハチの針",readings:["はちのはり"]},{name:"モニャモニャ",readings:["もにゃもにゃ"]},{name:"ガラクタ",readings:["がらくた"]},{name:"ハイビスカス",readings:["はいびすかす"]},{name:"ブチ",readings:["ぶち"]},{name:"雪風",readings:["ゆきかぜ"]},{name:"こんにちは",readings:["こんにちは"]}]},
+songs:[{name:"醒めない",readings:["さめない"]},{name:"みなと",readings:["みなと"]},{name:"子グマ!子グマ!",readings:["こぐまこぐま"]},{name:"コメット",readings:["こめっと"]},{name:"ナサケモノ",readings:["なさけもの"]},{name:"グリーン",readings:["ぐりーん"]},{name:"SJ",readings:["sj","えすじぇー"]},{name:"ハチの針",readings:["はちのはり"]},{name:"モニャモニャ",readings:["もにゃもにゃ"]},{name:"ガラクタ",readings:["がらくた"]},{name:"ヒビスクス",readings:["ひびすくす"]},{name:"ブチ",readings:["ぶち"]},{name:"雪風",readings:["ゆきかぜ"]},{name:"こんにちは",readings:["こんにちは"]}]},
 
 {title:"見っけ (16th, 2019)",
 image: "images/mikke.jpg",
-songs:[{name:"見っけ",readings:["みっけ"]},{name:"優しいあの子",readings:["やさしいあのこ"]},{name:"ありがとさん",readings:["ありがとさん"]},{name:"ラジオデイズ",readings:["らじおでいず"]},{name:"花と虫",readings:["はなとむし"]},{name:"ブービー",readings:["ぶーびー"]},{name:"快速",readings:["かいそく"]},{name:"YM71D",readings:["ym71d","やめないで"]},{name:"未来未来",readings:["みらいみらい"]},{name:"はぐれ狼",readings:["はぐれおおかみ"]},{name:"まがった僕のしっぽ",readings:["まがったぼくのしっぽ"]},{name:"初夏の日",readings:["しょかのひ"]},{name:"ヤマブキ",readings:["やまぶき"]}]},
+songs:[{name:"見っけ",readings:["みっけ"]},{name:"優しいあの子",readings:["やさしいあのこ"]},{name:"ありがとさん",readings:["ありがとさん"]},{name:"ラジオデイズ",readings:["らじおでいず"]},{name:"花と虫",readings:["はなとむし"]},{name:"ブービー",readings:["ぶーびー"]},{name:"快速",readings:["かいそく"]},{name:"YM71D",readings:["ym71d","やめないで"]},{name:"はぐれ狼",readings:["はぐれおおかみ"]},{name:"まがった僕のしっぽ",readings:["まがったぼくのしっぽ"]},{name:"初夏の日",readings:["しょかのひ"]},{name:"ヤマブキ",readings:["やまぶき"]}]},
 
 {title:"ひみつスタジオ (17th, 2023)",
 image: "images/himitsu.jpg",
-songs:[{name:"i-O(修理の歌)",readings:["io","ioしゅうりのうた","あいおー","あいおーしゅうりのうた"]},{name:"跳べ",readings:["とべ"]},{name:"大好物",readings:["だいこうぶつ"]},{name:"美しい鰭",readings:["うつくしいひれ"]},{name:"さびしくなかった",readings:["さびしくなかった"]},{name:"オバケのロックバンド",readings:["おばけのろっくばんど"]},{name:"手毬",readings:["てまり"]},{name:"紫の夜を越えて",readings:["むらさきのよるをこえて"]},{name:"Sandie",readings:["sandie","さんでぃー"]},{name:"ときめきPart1",readings:["ときめきpart1","ときめきぱーとわん"]},{name:"讃歌",readings:["さんか"]},{name:"めぐりめぐって",readings:["めぐりめぐって"]}]}
+songs:[{name:"i-O(修理の歌)",readings:["io","ioしゅうりのうた","あいおー","あいおーしゅうりのうた"]},{name:"跳べ",readings:["とべ"]},{name:"大好物",readings:["だいこうぶつ"]},{name:"美しい鰭",readings:["うつくしいひれ"]},{name:"さびしくなかった",readings:["さびしくなかった"]},{name:"オバケのロックバンド",readings:["おばけのろっくばんど"]},{name:"手毬",readings:["てまり"]},{name:"未来未来",readings:["みらいみらい"]},{name:"紫の夜を越えて",readings:["むらさきのよるをこえて"]},{name:"Sandie",readings:["sandie","さんでぃー"]},{name:"ときめきPart1",readings:["ときめきpart1","ときめきぱーとわん"]},{name:"讃歌",readings:["さんか"]},{name:"めぐりめぐって",readings:["めぐりめぐって"]}]}
 ];
 
