@@ -53,7 +53,7 @@ songs:[{name:"スターゲイザー",readings:["すたーげいざー"]},{name:"
 
 {title:"スーベニア (11th, 2005)",
 image: "images/souvenir.jpg",
-songs:[{name:"春の歌",readings:["はるのうた"]},{name:"ありふれた人生",readings:["ありふれたじんせい"]},{name:"甘ったれクリーチャー",readings:["あまったれくりーちゃー"]},{name:"優しくなりたいな",readings:["やさしくなりたいな"]},{name:"ナンプラー日和",readings:["なんぷらーびより"]},{name:"正夢",readings:["まさゆめ"]},{name:"ほのほ",readings:["ほのほ"]},{name:"ワタリ",readings:["わたり"]},{name:"恋のはじまり",readings:["こいのはじまり"]},{name:"自転車",readings:["じてんしゃ"]},{name:"テイタム・オニール",readings:["ていたむおにーる"]},{name:"会いに行くよ",readings:["あいにいくよ"]}]},
+songs:[{name:"春の歌",readings:["はるのうた"]},{name:"ありふれた人生",readings:["ありふれたじんせい"]},{name:"甘ったれクリーチャー",readings:["あまったれくりーちゃー"]},{name:"優しくなりたいな",readings:["やさしくなりたいな"]},{name:"ナンプラー日和",readings:["なんぷらーびより"]},{name:"正夢",readings:["まさゆめ"]},{name:"ほのほ",readings:["ほのほ"]},{name:"ワタリ",readings:["わたり"]},{name:"恋のはじまり",readings:["こいのはじまり"]},{name:"自転車",readings:["じてんしゃ"]},{name:"テイタム・オニール",readings:["ていたむおにーる"]},{name:"会いに行くよ",readings:["あいにいくよ"]},{name:"みそか",readings:["みそか"]}]},
 
 {title:"さざなみCD (12th, 2007)",
 image: "images/sazanami.jpg",
