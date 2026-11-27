@@ -82,6 +82,11 @@ songs:[{name:"見っけ",readings:["みっけ"]},{name:"優しいあの子",read
 
 {title:"ひみつスタジオ (17th, 2023)",
 image: "images/himitsu.jpg",
-songs:[{name:"i-O(修理の歌)",readings:["io","ioしゅうりのうた","あいおー","あいおーしゅうりのうた"]},{name:"跳べ",readings:["とべ"]},{name:"大好物",readings:["だいこうぶつ"]},{name:"美しい鰭",readings:["うつくしいひれ"]},{name:"さびしくなかった",readings:["さびしくなかった"]},{name:"オバケのロックバンド",readings:["おばけのろっくばんど"]},{name:"手毬",readings:["てまり"]},{name:"未来未来",readings:["みらいみらい"]},{name:"紫の夜を越えて",readings:["むらさきのよるをこえて"]},{name:"Sandie",readings:["sandie","さんでぃー"]},{name:"ときめきPart1",readings:["ときめきpart1","ときめきぱーとわん"]},{name:"讃歌",readings:["さんか"]},{name:"めぐりめぐって",readings:["めぐりめぐって"]}]}
+songs:[{name:"i-O(修理の歌)",readings:["io","ioしゅうりのうた","あいおー","あいおーしゅうりのうた"]},{name:"跳べ",readings:["とべ"]},{name:"大好物",readings:["だいこうぶつ"]},{name:"美しい鰭",readings:["うつくしいひれ"]},{name:"さびしくなかった",readings:["さびしくなかった"]},{name:"オバケのロックバンド",readings:["おばけのろっくばんど"]},{name:"手毬",readings:["てまり"]},{name:"未来未来",readings:["みらいみらい"]},{name:"紫の夜を越えて",readings:["むらさきのよるをこえて"]},{name:"Sandie",readings:["sandie","さんでぃー"]},{name:"ときめきPart1",readings:["ときめきpart1","ときめきぱーとわん"]},{name:"讃歌",readings:["さんか"]},{name:"めぐりめぐって",readings:["めぐりめぐって"]}]},
+
+{title:"kettle (18th, 2026)",
+image: "images/kettle.jpg",
+songs:[{name:"ちっちゃな無敵",readings:["ちっちゃなむてき"]},{name:"サプール",readings:["さぷーる"]},{name:"見知らぬ糸",readings:["みしらぬいと"]},{name:"夢でも会おうね",readings:["ゆめでもあおうね"]},{name:"変なトモダチ",readings:["へんなともだち"]},{name:"カラフル",readings:["からふる"]},{name:"破る歌",readings:["やぶるうた"]},{name:"逸脱希望サバイバー",readings:["いつだつきぼうさばいばー"]},{name:"キツネノボタン",readings:["きつねのぼたん"]},{name:"パンゲア",readings:["ぱんげあ"]},{name:"灯を護る",readings:["ひをまもる"]},{name:"kettle",readings:["kettle","けとる"]},{name:"萌黄色",readings:["もえぎいろ"]}]}
+
 ];
 
